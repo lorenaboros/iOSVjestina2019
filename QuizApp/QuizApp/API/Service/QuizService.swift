@@ -17,7 +17,6 @@ class QuizService {
             let request = URLRequest(url: url)
             let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let data = data {
-                   
                     let decoder = JSONDecoder()
                     do {
                         let quizzes = try decoder.decode(QuizResponse.self, from: data)
