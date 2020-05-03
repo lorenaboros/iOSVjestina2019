@@ -14,8 +14,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBAction func keyboardDidFinish(_ sender: UITextField) {
-    }
+    @IBOutlet weak var loginFailedField: UILabel!
     
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         loginUser()
@@ -36,9 +35,12 @@ class InitialViewController: UIViewController {
                 if let loginResponse = loginResponse {
                     let userDefaults = UserDefaults.standard
                     userDefaults.set(loginResponse.token,forKey: "authToken")
+                    userDefaults.set(loginResponse.user_id,forKey: "user_id")
+                    let quizViewController = QuizViewController()
+                    self.navigationController?.pushViewController(quizViewController, animated: true)
                 }
                 else {
-                    //self.mapToEmptyStateView()
+                    self.loginFailedField.isHidden = false
                 }
             }
         }

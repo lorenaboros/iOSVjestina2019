@@ -17,4 +17,14 @@ class Quiz: Decodable {
     var level: Int
     var image: URL?
     var questions: [Question]
+    
+    init(title: String, description: String, image: URL, category: QuizCategory, level: Int, questions: [Question], id: Int) {
+        self.title = title
+        self.description = description
+        self.image = image
+        self.id = id
+        self.category = category
+        self.level = level
+        self.questions = questions
+    }
 }
