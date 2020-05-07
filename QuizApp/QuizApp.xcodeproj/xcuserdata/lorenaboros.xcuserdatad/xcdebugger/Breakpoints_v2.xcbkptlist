@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuizApp/Controllers/InitialViewController.swift"
-            timestampString = "610182957.4760669"
+            filePath = "QuizApp/Views/QuestionView.swift"
+            timestampString = "611340249.3281209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "loginButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuizApp/API/Service/LoginService.swift"
-            timestampString = "610107021.430454"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "loginUser(password:username:completion:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "buttonClicked(_:answer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuizApp/API/Service/LoginService.swift"
-            timestampString = "610107046.131332"
+            filePath = "QuizApp/Views/QuestionView.swift"
+            timestampString = "611340249.3283679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "loginUser(password:username:completion:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "buttonClicked(_:answer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,29 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuizApp/Controllers/QuizViewController.swift"
-            timestampString = "610211222.486147"
+            filePath = "QuizApp/Views/QuestionView.swift"
+            timestampString = "611340249.328424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "loginUser(password:username:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuizApp/Controllers/QuizViewController.swift"
-            timestampString = "610211222.486214"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "loginUser(password:username:completion:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "buttonClicked(_:answer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

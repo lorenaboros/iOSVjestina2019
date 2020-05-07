@@ -19,9 +19,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InitialViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="appLabel" destination="Rao-Qv-6RT" id="eyg-yS-soP"/>
                 <outlet property="loginButton" destination="qRn-97-ogB" id="INT-1M-YMw"/>
+                <outlet property="loginButtonCenterConstraint" destination="bIX-RK-OZv" id="NHe-c6-pqd"/>
                 <outlet property="loginFailedField" destination="6OO-c0-Ggz" id="LEe-sf-WdE"/>
+                <outlet property="passwordCenterConstraint" destination="Nc1-zJ-LgR" id="KVG-3x-HZK"/>
                 <outlet property="passwordField" destination="Lg1-Ry-j5x" id="fLz-9m-k2T"/>
+                <outlet property="usernameCenterConstraint" destination="vfF-MX-KiW" id="MJK-Yj-s5U"/>
                 <outlet property="usernameField" destination="BNe-Sk-qbL" id="k9B-md-qT5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

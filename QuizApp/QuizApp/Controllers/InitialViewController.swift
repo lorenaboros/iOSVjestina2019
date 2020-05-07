@@ -13,8 +13,12 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    
+    @IBOutlet weak var appLabel: UILabel!
     @IBOutlet weak var loginFailedField: UILabel!
+    
+    @IBOutlet weak var loginButtonCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var usernameCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordCenterConstraint: NSLayoutConstraint!
     
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         loginUser()
