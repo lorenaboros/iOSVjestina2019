@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizViewController" customModule="QuizApp" customModuleProvider="target">
+            <connections>
+                <outlet property="NBAfunFactView" destination="mbe-UK-3Pd" id="czB-5q-gwH"/>
+                <outlet property="errorImageView" destination="vmN-I3-kFA" id="jZD-ck-Bmi"/>
+                <outlet property="errorMessageField" destination="Jwz-JM-xdj" id="6I3-Oz-EDN"/>
+                <outlet property="errorTitle" destination="Er2-V9-Za0" id="jvw-wN-I24"/>
+                <outlet property="funFactView" destination="mbe-UK-3Pd" id="3tX-zq-C2M"/>
+                <outlet property="getQuizButton" destination="KSI-Q4-o33" id="DIG-Bm-C82"/>
+                <outlet property="questionViewContrainer" destination="6ua-Mb-Q47" id="Nk9-dc-Mue"/>
+                <outlet property="quizCategory" destination="oTq-hl-VbR" id="J4q-4y-YbI"/>
+                <outlet property="quizImageView" destination="oXJ-GN-ghG" id="fTW-Nj-aaX"/>
+                <outlet property="quizTitle" destination="Ezo-Ri-NLs" id="Mxi-hb-JUa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTK-L7-6dZ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKU-U0-tA0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PopQuiz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-Ko-1SV" userLabel="PopQuizTitleLabel">
+                                    <rect key="frame" x="143" y="61" width="89" height="31"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="24"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSI-Q4-o33" userLabel="Get QuizButton">
+                                    <rect key="frame" x="32" y="127" width="311" height="44"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="IKz-Hb-8Tk"/>
+                                        <constraint firstAttribute="width" constant="311" id="icb-N1-Ktc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="17"/>
+                                    <state key="normal" title="Get Quiz">
+                                        <color key="titleColor" red="0.38823529411764707" green="0.16078431372549018" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="xQE-3c-I1U"/>
+                                    </connections>
+                                </button>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="vmN-I3-kFA" userLabel="ErrorImageView">
+                                    <rect key="frame" x="154" y="322" width="67" height="67"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="67" id="M8w-JJ-Il2"/>
+                                        <constraint firstAttribute="width" constant="67" id="d8Q-df-9Ld"/>
+                                    </constraints>
+                                </imageView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data can’t be reached. Please try again " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwz-JM-xdj" userLabel="ErrorMessage">
+                                    <rect key="frame" x="112.5" y="458" width="150" height="69"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="69" id="XQK-hF-eT9"/>
+                                        <constraint firstAttribute="width" constant="150" id="jse-eA-fTM"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💡 Fun Fact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8v9-Q7-tZf" userLabel="FunFactTextView">
+                                    <rect key="frame" x="24" y="218" width="166" height="41"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="166" id="TSB-lW-o0z"/>
+                                        <constraint firstAttribute="height" constant="41" id="kbh-IT-teH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="24"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbe-UK-3Pd" userLabel="NBAFunFact">
+                                    <rect key="frame" x="24" y="259" width="324" height="23"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="324" id="wUb-Cs-ulR"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezo-Ri-NLs">
+                                    <rect key="frame" x="135" y="370" width="97" height="31"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="24"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oXJ-GN-ghG" userLabel="QuizImageView">
+                                    <rect key="frame" x="24" y="370.5" width="100" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="5HC-9h-9Qx"/>
+                                        <constraint firstAttribute="width" constant="100" id="TZV-WZ-qD1"/>
+                                    </constraints>
+                                </imageView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTq-hl-VbR">
+                                    <rect key="frame" x="24" y="337" width="106" height="22"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-V9-Za0" userLabel="ErrorTitle">
+                                    <rect key="frame" x="82" y="389" width="211" height="69"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="69" id="9be-2K-UsU"/>
+                                        <constraint firstAttribute="width" constant="211" id="AuU-U8-qJi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="28"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ua-Mb-Q47" userLabel="QuestionView Container">
+                                    <rect key="frame" x="0.0" y="478.5" width="375" height="127.5"/>
+                                    <color key="backgroundColor" red="0.33725490196078434" green="0.18431372549019609" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.33725490196078434" green="0.18431372549019609" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="6ua-Mb-Q47" secondAttribute="bottom" constant="61" id="05C-HN-suM"/>
+                                <constraint firstItem="mbe-UK-3Pd" firstAttribute="top" secondItem="8v9-Q7-tZf" secondAttribute="bottom" id="5bV-G6-Hbg"/>
+                                <constraint firstItem="vmN-I3-kFA" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="6bL-zI-5yo"/>
+                                <constraint firstItem="8v9-Q7-tZf" firstAttribute="top" secondItem="KSI-Q4-o33" secondAttribute="bottom" constant="47" id="9CR-qR-BKd"/>
+                                <constraint firstItem="Jwz-JM-xdj" firstAttribute="top" secondItem="Er2-V9-Za0" secondAttribute="bottom" id="ANx-MP-rHt"/>
+                                <constraint firstItem="oTq-hl-VbR" firstAttribute="top" secondItem="KSI-Q4-o33" secondAttribute="bottom" constant="166" id="BOr-rO-H7X"/>
+                                <constraint firstItem="Ezo-Ri-NLs" firstAttribute="leading" secondItem="oXJ-GN-ghG" secondAttribute="trailing" constant="11" id="Caa-it-Jh8"/>
+                                <constraint firstItem="Er2-V9-Za0" firstAttribute="top" secondItem="vmN-I3-kFA" secondAttribute="bottom" id="Fwr-ne-6XG"/>
+                                <constraint firstItem="6ua-Mb-Q47" firstAttribute="width" secondItem="XKU-U0-tA0" secondAttribute="width" id="H6h-Je-91I"/>
+                                <constraint firstItem="8v9-Q7-tZf" firstAttribute="leading" secondItem="XKU-U0-tA0" secondAttribute="leading" constant="24" id="Hgh-ay-Ogg"/>
+                                <constraint firstItem="oTq-hl-VbR" firstAttribute="leading" secondItem="XKU-U0-tA0" secondAttribute="leading" constant="24" id="JY7-He-Hhv"/>
+                                <constraint firstItem="vmN-I3-kFA" firstAttribute="top" secondItem="KSI-Q4-o33" secondAttribute="bottom" constant="151" id="Q2h-eB-kyg"/>
+                                <constraint firstItem="Er2-V9-Za0" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="QnN-ge-9Sj"/>
+                                <constraint firstItem="qSX-Ko-1SV" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="QsE-Pr-i5u"/>
+                                <constraint firstItem="Ezo-Ri-NLs" firstAttribute="top" secondItem="8v9-Q7-tZf" secondAttribute="bottom" constant="111" id="V1g-mV-2FX"/>
+                                <constraint firstItem="KSI-Q4-o33" firstAttribute="top" secondItem="qSX-Ko-1SV" secondAttribute="bottom" constant="35" id="Wkx-9r-bMq"/>
+                                <constraint firstAttribute="trailing" secondItem="6ua-Mb-Q47" secondAttribute="trailing" id="Ycb-D7-BGf"/>
+                                <constraint firstItem="oXJ-GN-ghG" firstAttribute="top" secondItem="oTq-hl-VbR" secondAttribute="bottom" constant="11.5" id="avO-Zk-YYS"/>
+                                <constraint firstItem="mbe-UK-3Pd" firstAttribute="leading" secondItem="XKU-U0-tA0" secondAttribute="leading" constant="24" id="bbV-2L-Psj"/>
+                                <constraint firstItem="6ua-Mb-Q47" firstAttribute="leading" secondItem="XKU-U0-tA0" secondAttribute="leading" id="ggA-Vm-SSw"/>
+                                <constraint firstItem="oXJ-GN-ghG" firstAttribute="leading" secondItem="XKU-U0-tA0" secondAttribute="leading" constant="24" id="opD-a1-wWw"/>
+                                <constraint firstItem="Jwz-JM-xdj" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="oyi-XB-Guz"/>
+                                <constraint firstItem="KSI-Q4-o33" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="tch-7s-CIs"/>
+                                <constraint firstItem="qSX-Ko-1SV" firstAttribute="top" secondItem="XKU-U0-tA0" secondAttribute="top" constant="61" id="vHA-le-6Sz"/>
+                                <constraint firstItem="6ua-Mb-Q47" firstAttribute="centerX" secondItem="XKU-U0-tA0" secondAttribute="centerX" id="vMS-pe-Jvo"/>
+                                <constraint firstItem="6ua-Mb-Q47" firstAttribute="top" secondItem="oXJ-GN-ghG" secondAttribute="bottom" constant="8" id="zOF-eA-XWm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="XKU-U0-tA0" secondAttribute="bottom" id="ADG-zr-quh"/>
+                        <constraint firstItem="XKU-U0-tA0" firstAttribute="width" secondItem="WTK-L7-6dZ" secondAttribute="width" id="eoG-7g-3lw"/>
+                        <constraint firstAttribute="trailing" secondItem="XKU-U0-tA0" secondAttribute="trailing" id="h5m-TE-YBc"/>
+                        <constraint firstItem="XKU-U0-tA0" firstAttribute="leading" secondItem="WTK-L7-6dZ" secondAttribute="leading" id="ncz-0k-pKm"/>
+                        <constraint firstItem="XKU-U0-tA0" firstAttribute="top" secondItem="WTK-L7-6dZ" secondAttribute="top" id="pgL-nL-yC0"/>
+                        <constraint firstItem="XKU-U0-tA0" firstAttribute="height" secondItem="WTK-L7-6dZ" secondAttribute="height" id="qpq-aJ-dyP"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.33725490196078434" green="0.18431372549019609" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WTK-L7-6dZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2Sc-3m-n4w"/>
+                <constraint firstItem="WTK-L7-6dZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Iyh-C6-Qgy"/>
+                <constraint firstItem="WTK-L7-6dZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NXZ-Pn-Ii4"/>
+                <constraint firstItem="WTK-L7-6dZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zSw-ZU-TWP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="error" width="67" height="67"/>
+    </resources>
+</document>
