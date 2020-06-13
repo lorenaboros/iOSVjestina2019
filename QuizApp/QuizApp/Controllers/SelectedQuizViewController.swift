@@ -21,6 +21,7 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
     var questions: [QuestionView] = []
     var correctAnswersCounter: Int = 0
     var quizStartedTime: Date = Date()
+    var quizFinishedTime: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,7 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
     func setupQuestionScrollView(questions : [QuestionView]) {
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(questions.count+1), height: view.frame.height)
+        
         
         scrollView.isScrollEnabled = false
         scrollView.isPagingEnabled = true
