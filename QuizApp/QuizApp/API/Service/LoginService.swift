@@ -20,9 +20,10 @@ class LoginService {
             URLQueryItem(name: "password", value: password)
         ]
         
-        let urlURL = urlComponents.url!
-        
-        var request = URLRequest(url: urlComponents.url!)
+        guard let urlURL = urlComponents.url else {
+            return
+        }
+        var request = URLRequest(url: urlURL)
         request.httpMethod = "POST"
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
