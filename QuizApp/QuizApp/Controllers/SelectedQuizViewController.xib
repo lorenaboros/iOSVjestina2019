@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectedQuizViewController" customModule="QuizApp" customModuleProvider="target">
+            <connections>
+                <outlet property="pageControl" destination="VGd-Mg-fiZ" id="x7W-R7-UXd"/>
+                <outlet property="quizDescriptionField" destination="yLt-TO-RE5" id="4BP-OI-wDd"/>
+                <outlet property="quizImageView" destination="brS-5E-IAa" id="JES-fK-hAx"/>
+                <outlet property="quizTitleField" destination="qQP-K4-UMl" id="poO-EA-7Xz"/>
+                <outlet property="scrollView" destination="eHN-Kh-ha7" id="TVI-KH-Y78"/>
+                <outlet property="startQuizButton" destination="hmB-VT-7S9" id="ICc-lf-WSh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuizTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-K4-UMl">
+                    <rect key="frame" x="24" y="160" width="327" height="40.5"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuizDiscription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-TO-RE5">
+                    <rect key="frame" x="129.5" y="218.5" width="116" height="23"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="brS-5E-IAa">
+                    <rect key="frame" x="41" y="261.5" width="293" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="jsO-tv-kc3"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-VT-7S9">
+                    <rect key="frame" x="41" y="461.5" width="293" height="34"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="17"/>
+                    <state key="normal" title="Start Quiz">
+                        <color key="titleColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onStartQuizButtonClicked:" destination="-1" eventType="touchUpInside" id="Umy-k2-Z5Z"/>
+                    </connections>
+                </button>
+                <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHN-Kh-ha7">
+                    <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </scrollView>
+                <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="VGd-Mg-fiZ">
+                    <rect key="frame" x="168" y="620" width="39" height="37"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="brS-5E-IAa" firstAttribute="top" secondItem="yLt-TO-RE5" secondAttribute="bottom" constant="20" id="0Qs-ir-1hF"/>
+                <constraint firstItem="brS-5E-IAa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3bU-zg-BoY"/>
+                <constraint firstItem="eHN-Kh-ha7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="FGT-05-gEb"/>
+                <constraint firstItem="yLt-TO-RE5" firstAttribute="top" secondItem="qQP-K4-UMl" secondAttribute="bottom" constant="18" id="Pje-Ps-e3Z"/>
+                <constraint firstItem="qQP-K4-UMl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="140" id="SfJ-YB-KWL"/>
+                <constraint firstItem="yLt-TO-RE5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tqk-9g-QpF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VGd-Mg-fiZ" secondAttribute="bottom" constant="10" id="VkW-3B-f4y"/>
+                <constraint firstItem="VGd-Mg-fiZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YfF-SQ-BZJ"/>
+                <constraint firstItem="eHN-Kh-ha7" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" id="ZBP-fF-4zt"/>
+                <constraint firstItem="eHN-Kh-ha7" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="ZDT-zS-Pro"/>
+                <constraint firstItem="qQP-K4-UMl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h4m-al-CO6"/>
+                <constraint firstItem="qQP-K4-UMl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="jPw-9B-pvK"/>
+                <constraint firstItem="hmB-VT-7S9" firstAttribute="top" secondItem="brS-5E-IAa" secondAttribute="bottom" constant="20" id="moI-y5-gFf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="brS-5E-IAa" secondAttribute="trailing" constant="41" id="nfz-Ss-ulR"/>
+                <constraint firstItem="eHN-Kh-ha7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nhj-kl-68T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qQP-K4-UMl" secondAttribute="trailing" constant="24" id="pip-oz-7nR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hmB-VT-7S9" secondAttribute="trailing" constant="41" id="rbO-pO-X64"/>
+                <constraint firstItem="hmB-VT-7S9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="sgI-eR-YMI"/>
+                <constraint firstItem="brS-5E-IAa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="v2U-38-6lZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140" y="154.27286356821591"/>
+        </view>
+    </objects>
+</document>

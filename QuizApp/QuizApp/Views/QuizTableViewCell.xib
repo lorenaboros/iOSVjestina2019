@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="GDR-NY-8Je" customClass="QuizTableViewCell" customModule="QuizApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="192"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GDR-NY-8Je" id="Y3H-45-b2I">
+                <rect key="frame" x="0.0" y="0.0" width="387" height="191.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HvV-4t-MEh" userLabel="Quiz Image View">
+                        <rect key="frame" x="27" y="31" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="8y0-2b-PBQ"/>
+                            <constraint firstAttribute="width" constant="100" id="qs2-15-jfy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-35-IoH" userLabel="Quiz Description Label">
+                        <rect key="frame" x="145" y="79.5" width="204" height="18"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-MS-op9" userLabel="Quiz Title Label">
+                        <rect key="frame" x="145" y="37" width="189" height="30.5"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuizRating" translatesAutoresizingMaskIntoConstraints="NO" id="ckQ-Wq-GSb">
+                        <rect key="frame" x="327" y="12" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="cKd-7Q-L7r"/>
+                            <constraint firstAttribute="height" constant="10" id="yCe-cK-hiA"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuizRating" translatesAutoresizingMaskIntoConstraints="NO" id="tLj-jx-h9R" userLabel="QuizRating3">
+                        <rect key="frame" x="353" y="12" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="XF3-de-svX"/>
+                            <constraint firstAttribute="width" constant="10" id="yhD-Bf-GlX"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuizRating" translatesAutoresizingMaskIntoConstraints="NO" id="GIL-Ii-Aoy" userLabel="QuizRating2">
+                        <rect key="frame" x="340" y="12" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="5dx-PO-E9T"/>
+                            <constraint firstAttribute="width" constant="10" id="Wpe-vb-DiM"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.33725490196078434" green="0.18431372549019609" blue="0.46274509803921571" alpha="0.81999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="Fkx-35-IoH" firstAttribute="top" secondItem="wpI-MS-op9" secondAttribute="bottom" constant="12" id="2Uw-ym-Ni6"/>
+                    <constraint firstItem="tLj-jx-h9R" firstAttribute="top" secondItem="Y3H-45-b2I" secondAttribute="top" constant="12" id="6Mw-Jw-wzY"/>
+                    <constraint firstItem="GIL-Ii-Aoy" firstAttribute="top" secondItem="Y3H-45-b2I" secondAttribute="top" constant="12" id="6bd-Yc-6G4"/>
+                    <constraint firstItem="Fkx-35-IoH" firstAttribute="top" secondItem="wpI-MS-op9" secondAttribute="bottom" constant="12" id="DIe-pF-7fq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wpI-MS-op9" secondAttribute="trailing" constant="33" id="DVE-gc-5bc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fkx-35-IoH" secondAttribute="trailing" constant="18" id="Ioh-sT-pbW"/>
+                    <constraint firstItem="GIL-Ii-Aoy" firstAttribute="leading" secondItem="ckQ-Wq-GSb" secondAttribute="trailing" constant="3" id="LjW-pF-3yt"/>
+                    <constraint firstItem="ckQ-Wq-GSb" firstAttribute="top" secondItem="Y3H-45-b2I" secondAttribute="top" constant="12" id="PR2-S4-pEt"/>
+                    <constraint firstItem="Fkx-35-IoH" firstAttribute="leading" secondItem="HvV-4t-MEh" secondAttribute="trailing" constant="18" id="PSV-4W-ZwZ"/>
+                    <constraint firstItem="wpI-MS-op9" firstAttribute="leading" secondItem="HvV-4t-MEh" secondAttribute="trailing" constant="18" id="PpE-sh-RfH"/>
+                    <constraint firstItem="wpI-MS-op9" firstAttribute="top" secondItem="Y3H-45-b2I" secondAttribute="topMargin" constant="26" id="Ui2-ki-jWX"/>
+                    <constraint firstItem="HvV-4t-MEh" firstAttribute="leading" secondItem="Y3H-45-b2I" secondAttribute="leadingMargin" constant="7" id="XQK-Kn-NLj"/>
+                    <constraint firstAttribute="trailing" secondItem="ckQ-Wq-GSb" secondAttribute="trailing" constant="50" id="dAk-oU-gBs"/>
+                    <constraint firstItem="tLj-jx-h9R" firstAttribute="leading" secondItem="GIL-Ii-Aoy" secondAttribute="trailing" constant="3" id="g4w-fv-Uax"/>
+                    <constraint firstItem="HvV-4t-MEh" firstAttribute="top" secondItem="Y3H-45-b2I" secondAttribute="topMargin" constant="20" id="ulu-i6-hdi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="oneRating" destination="ckQ-Wq-GSb" id="EMx-1l-0Wb"/>
+                <outlet property="quizDescription" destination="Fkx-35-IoH" id="rmy-Qv-cZV"/>
+                <outlet property="quizImage" destination="HvV-4t-MEh" id="gXn-c2-WFX"/>
+                <outlet property="quizTitle" destination="wpI-MS-op9" id="BeZ-3i-BGb"/>
+                <outlet property="twoRating" destination="GIL-Ii-Aoy" id="6VS-3g-oAD"/>
+            </connections>
+            <point key="canvasLocation" x="157.59999999999999" y="231.18440779610197"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="QuizRating" width="15" height="14"/>
+    </resources>
+</document>

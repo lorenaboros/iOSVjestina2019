@@ -10,39 +10,67 @@ import UIKit
 
 class QuizViewController: UIViewController {
     
-    @IBOutlet weak var questionViewContrainer: UIView!
-    @IBOutlet weak var errorImageView: UIImageView!
-    @IBOutlet weak var quizTitle: UILabel!
-    @IBOutlet weak var quizImageView: UIImageView!
-    @IBOutlet weak var quizCategory: UILabel!
-    @IBOutlet weak var funFactView: UILabel!
+    @IBOutlet weak var quizTableView: UITableView!
+    @IBOutlet weak var errorMessageField: UILabel!
     @IBOutlet weak var errorTitle: UILabel!
+    @IBOutlet weak var errorImageView: UIImageView!
     @IBOutlet weak var getQuizButton: UIButton!
     @IBOutlet weak var NBAfunFactView: UILabel!
-    @IBOutlet weak var errorMessageField: UILabel!
     
-    var correctAnswer: String = ""
+    var quizzes: [Quiz]?
+    var refreshControl: UIRefreshControl!
+    let cellReuseIdentifier = "cellReuseIdentifier"
+    var sections: Set<QuizCategory>!
+    
+    @IBAction func getQuizzesButtonClicked(_ sender: UIButton) {
+        setupTableView()
+        setupData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quizTableView.register(QuizSectionHeader.self,forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
     
-    @IBAction func buttonTapped(_ sender: Any) {
-        fetchQuiz()
+    private func setupTableView() {
+        refreshControl = UIRefreshControl()
+        quizTableView.dataSource = self
+        quizTableView.delegate = self
+        refreshControl.addTarget(self, action: #selector(QuizViewController.refresh), for: UIControl.Event.valueChanged)
+        quizTableView.refreshControl = refreshControl
+        quizTableView.register(UINib(nibName: "QuizTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     }
     
-    private func fetchQuiz() {
+    private func setupData() {
         let quizService = QuizService()
         quizService.fetchQuizes() { [weak self] (quizzes) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                if let quizzes = quizzes {
-                    self.mapToView(quiz: quizzes.quizzes[0])
-                    self.computeNBAcount(quizzes: quizzes.quizzes)
-                } else {
-                    self.mapToEmptyStateView()
-                }
+            guard let self = self else {
+                return
             }
+            guard let quizzes = quizzes else {
+                self.mapToEmptyStateView()
+                return
+            }
+            self.quizzes = quizzes.quizzes
+            self.sections = self.getSections()
+            self.refresh()
+            self.computeNBAcount(quizzes: quizzes.quizzes)
+        }
+    }
+    
+    private func computeNBAcount(quizzes: [Quiz]) {
+        DispatchQueue.main.async {
+            let NBAcount = quizzes.map({$0.questions}).flatMap { $0 }.map{$0.question}.filter{$0.contains("NBA")}.count
+            self.NBAfunFactView.text = "There are \(NBAcount) questions that contain the word “NBA.”"
+            self.NBAfunFactView.isHidden = false
+        }
+    }
+    
+    @objc func refresh() {
+        DispatchQueue.main.async {
+            self.quizTableView.reloadData()
+            self.refreshControl.endRefreshing()
+            self.quizTableView.isHidden = false
         }
     }
     
@@ -52,70 +80,80 @@ class QuizViewController: UIViewController {
         errorMessageField.isHidden = false
     }
     
-    private func mapToView(quiz: Quiz){
-        addCustomView(question: quiz.questions[0])
-        quizTitle.text = quiz.title
-        
-       if let url = quiz.image {
-           let data = try? Data(contentsOf: url)
-           self.quizImageView.image = UIImage(data: data!)
+    private func quiz(section: Int, row: Int) -> Quiz? {
+        guard let quizzes = quizzes else {
+            return nil
         }
-        
-        switch quiz.category {
-            case .SCIENCE:
-                quizCategory.text = "SCIENCE"
-                quizTitle.backgroundColor = .green
-                quizImageView.backgroundColor = .green
-            case .SPORTS:
-                quizCategory.text = "SPORTS"
-                quizTitle.backgroundColor = UIColor.blue
-                quizImageView.backgroundColor = UIColor.blue
+        if section==0 {
+            return quizzes.filter{$0.category == QuizCategory.SPORTS}[row]
         }
-        
-        NBAfunFactView.isHidden = false
-        quizCategory.isHidden = false
-        quizTitle.isHidden = false
-        quizImageView.isHidden = false
+        else {
+            return quizzes.filter{$0.category == QuizCategory.SCIENCE}[row]
+        }
     }
     
-    private func computeNBAcount(quizzes: [Quiz]) {
-        let NBAcount = quizzes
-            .map{ $0.questions }
-            .flatMap { $0 }
-            .map{ $0.question }
-            .filter{$0.contains("NBA")}
-            .count
-        NBAfunFactView.text = "There are \(NBAcount) questions that contain the word “NBA.”"
-        NBAfunFactView.isHidden = false
+    private func getSections() -> Set<QuizCategory> {
+        guard let quizzes = quizzes else {
+            return Set<QuizCategory>()
+        }
+        return Set(quizzes.map{$0.category})
+    }
+}
+
+extension QuizViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180.0
     }
     
-    func addCustomView(question: Question) {
-        guard let customView = Bundle.main.loadNibNamed("QuestionView", owner: nil, options: [:])?.first as? QuestionView else {
-            return
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = quizTableView.dequeueReusableHeaderFooterView(withIdentifier:
+            "sectionHeader") as! QuizSectionHeader
+        view.title.text = Array(sections)[section].rawValue
+        
+        if Array(sections)[section] == QuizCategory.SPORTS {
+            view.title.textColor = UIColor.blue
         }
-        questionViewContrainer.addSubview(customView)
-        customView.questionField.text = question.question
-        customView.button0Answer.setTitle(question.answers[0], for: .normal)
-        customView.button1Answer.setTitle(question.answers[1], for: .normal)
-        customView.button2Answer.setTitle(question.answers[2], for: .normal)
-        customView.button3Answer.setTitle(question.answers[3], for: .normal)
-        
-        correctAnswer = question.answers[question.correct_answer]
-        
-        customView.button0Answer.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        customView.button1Answer.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        customView.button2Answer.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        customView.button3Answer.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        else {
+            view.title.textColor = UIColor.red
+        }
+        return view
     }
     
-    @objc private func buttonClicked(_ sender: AnyObject?){
-        guard let button: UIButton = sender as? UIButton else {
-            return
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let quiz = quiz(section: indexPath.section, row: indexPath.row) {
+            let selectedQuizViewController = SelectedQuizViewController()
+            selectedQuizViewController.quiz = quiz
+            navigationController?.pushViewController(selectedQuizViewController, animated: true)
         }
-        if button.title(for: .normal) == correctAnswer {
-            button.backgroundColor = UIColor.green
-        } else {
-            button.backgroundColor = UIColor.red
+    }
+}
+
+extension QuizViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! QuizTableViewCell
+        
+        guard let quiz = quiz(section: indexPath.section,row: indexPath.row) else {
+            return cell
+        }
+        cell.setup(withQuiz: quiz)
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let quizzes = quizzes else {
+            return 0
+        }
+        return Set(quizzes.map{$0.category}).count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section==0 {
+            return quizzes?.filter{$0.category == QuizCategory.SPORTS}.count ?? 0
+        }
+        else {
+            return quizzes?.filter{$0.category == QuizCategory.SCIENCE}.count ?? 0
         }
     }
 }

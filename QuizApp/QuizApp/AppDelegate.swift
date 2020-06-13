@@ -12,9 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool { 
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let shouldShowLogin = checkForAuthToken()
@@ -26,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc = QuizViewController()
         }
         
-        window?.rootViewController = vc
+        let navigationController = UINavigationController(rootViewController: vc)
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         return true
@@ -41,7 +41,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
     }
-    
-    
 }
-
