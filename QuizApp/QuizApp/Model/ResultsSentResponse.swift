@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum HttpResponse: Int {
-    case UNAUTORIZED = 401
-    case FORBIDDEN = 403
-    case NOT_FOUND = 404
-    case BAD_REQUEST = 400
-    case OK = 200
+class ResultsSentResponse {
+    var responseMessage: String = ""
 }
