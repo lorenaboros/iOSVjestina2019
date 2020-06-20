@@ -20,15 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if shouldShowLogin {
             vc = InitialViewController()
+            window?.rootViewController = vc
+            
         }else {
-            vc = QuizViewController()
+            let customTabBarViewController = CustomTabBarViewController()
+            customTabBarViewController.initTabBar()
+            window?.rootViewController = customTabBarViewController
         }
         
-        let navigationController = UINavigationController(rootViewController: vc)
-
-        window?.rootViewController = navigationController
+       
         window?.makeKeyAndVisible()
-        
         return true
     }
     

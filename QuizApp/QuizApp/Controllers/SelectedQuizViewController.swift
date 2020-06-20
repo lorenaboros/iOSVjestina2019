@@ -21,7 +21,6 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
     var questions: [QuestionView] = []
     var correctAnswersCounter: Int = 0
     var quizStartedTime: Date = Date()
-    var quizFinishedTime: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +36,20 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
         }
         let data = try? Data(contentsOf: url)
         quizImageView.image = UIImage(data: data!)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         questions = createQuestions()
         setupQuestionScrollView(questions: questions)
         pageControl.numberOfPages = questions.count
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
+    }
+    
+    @IBAction func leaderboardButtonClick(_ sender: Any) {
+        let leaderboardViewController = LeaderboardViewController()
+        leaderboardViewController.quizId = quiz?.id
+        navigationController?.pushViewController(leaderboardViewController, animated: true)
     }
     
     @IBAction func onStartQuizButtonClicked(_ sender: UIButton) {
@@ -80,7 +87,6 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(questions.count+1), height: view.frame.height)
         
-        
         scrollView.isScrollEnabled = false
         scrollView.isPagingEnabled = true
         
@@ -112,6 +118,5 @@ class SelectedQuizViewController: UIViewController, QuestionViewDelegate {
         if answer == correctAnswer {
             correctAnswersCounter = correctAnswersCounter + 1
         }
-        
     }
 }

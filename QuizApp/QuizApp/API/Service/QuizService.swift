@@ -9,6 +9,8 @@
 import Foundation
 
 class QuizService {
+    
+    private var quizRepository = QuizRepository()
   
     func fetchQuizes(completion: @escaping ((QuizResponse?) -> Void)) {
         let url = "https://iosquiz.herokuapp.com/api/quizzes"
@@ -20,6 +22,7 @@ class QuizService {
                     let decoder = JSONDecoder()
                     do {
                         let quizzes = try decoder.decode(QuizResponse.self, from: data)
+                    //    let quizEntities = self.quizRepository.saveQuizzes(quizResponse: quizzes)
                         completion(quizzes)
                     } catch {
                         print(error)
@@ -33,10 +36,10 @@ class QuizService {
         }
     }
     
-    func sendResults(quiz_id: Int ,user_id: Int, time: Double, correctAnswers: Int, completion: @escaping ((Int?) -> Void)) {
+    func sendResults(quiz_id: Int ,user_id: Int, time: Double, correctAnswers: Int, completion: @escaping ((HttpResponse?) -> Void)) {
         let url = "https://iosquiz.herokuapp.com/api/result"
         let parameters = ["quiz_id": quiz_id, "user_id": user_id, "time": time,"no_of_correct": correctAnswers] as [String : Any]
-    
+        
         if let url = URL(string: url) {
             var request = URLRequest(url: url)
             do {
@@ -59,7 +62,26 @@ class QuizService {
                         print("error: not a valid http response")
                         return
                 }
-                completion(httpResponse.statusCode)
+                switch(httpResponse.statusCode) {
+                case 200:
+                    completion(HttpResponse.OK)
+                    break
+                case 400:
+                    completion(HttpResponse.BAD_REQUEST)
+                    break
+                case 401:
+                    completion(HttpResponse.UNAUTORIZED)
+                    break
+                case 403:
+                    completion(HttpResponse.FORBIDDEN)
+                    break
+                case 404:
+                    completion(HttpResponse.NOT_FOUND)
+                    break
+                default:
+                    completion(HttpResponse.INTERNAL_SERVER_ERROR)
+                    break
+                }
             }
             dataTask.resume()
         }
