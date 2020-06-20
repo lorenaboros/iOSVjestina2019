@@ -29,35 +29,30 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         quizTableView.register(QuizSectionHeader.self,forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
     
-    
     func setupTableView() {
-        
         refreshControl = UIRefreshControl()
         quizTableView.dataSource = self
         quizTableView.delegate = self
         refreshControl.addTarget(self, action: #selector(QuizViewController.refresh), for: UIControl.Event.valueChanged)
         quizTableView.refreshControl = refreshControl
         quizTableView.register(UINib(nibName: "QuizTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-        
     }
     
     func setupData() {
         let quizService = QuizService()
         quizService.fetchQuizes() { [weak self] (quizzes) in
-         guard let self = self else { return }
-            if let quizzes = quizzes {
-                self.quizzes = quizzes.quizzes
-                self.sections = self.getSelections()
-                self.refresh()
-                self.computeNBAcount(quizzes: quizzes.quizzes)
-            }
-            else {
+            guard let self = self else { return }
+            guard let quizzes = quizzes else {
                 self.mapToEmptyStateView()
+                return
             }
+            self.quizzes = quizzes.quizzes
+            self.sections = self.getSections()
+            self.refresh()
+            self.computeNBAcount(quizzes: quizzes.quizzes)
         }
     }
     
@@ -71,16 +66,18 @@ class QuizViewController: UIViewController {
     }
     
     private func mapToEmptyStateView() {
-        errorTitle.isHidden = false
-        errorImageView.isHidden = false
-        errorMessageField.isHidden = false
+         DispatchQueue.main.async {
+        self.errorTitle.isHidden = false
+        self.errorImageView.isHidden = false
+        self.errorMessageField.isHidden = false
+             }
     }
     
     func quiz(section: Int, row: Int) -> Quiz? {
         guard let quizzes = quizzes else {
             return nil
         }
-        if (section==0){
+        if section==0 {
             return quizzes.filter{$0.category == QuizCategory.SPORTS}[row]
         }
         else {
@@ -88,36 +85,20 @@ class QuizViewController: UIViewController {
         }
     }
     
-    func getSelections() -> Set<QuizCategory> {
-        if let pom = quizzes {
-            return Set(pom.map{$0.category})
-        }
-        else {
+    private func getSections() -> Set<QuizCategory> {
+        guard let quizzes = quizzes else {
             return Set<QuizCategory>()
         }
-    }
-    
-    func numberOfQuizzes() -> Int {
-        if let pom = quizzes {
-            return Set(pom.map{$0.category}).count
-        }
-        else {
-            return 0
-        }
+        return Set(quizzes.map{$0.category})
     }
     
     private func computeNBAcount(quizzes: [Quiz]) {
         DispatchQueue.main.async {
             let NBAcount = quizzes.map({$0.questions}).flatMap { $0 }.map{$0.question}.filter{$0.contains("NBA")}.count
-            self.NBAfunFactView.text = "There are " + String(NBAcount) + " questions that contain the word “NBA.”"
+            self.NBAfunFactView.text = "There are \(NBAcount) questions that contain the word “NBA.”"
             self.NBAfunFactView.isHidden = false
         }
     }
-    
-    func createQuiz(withText title: String, description: String, image: URL, category: QuizCategory, level: Int, questions: [Question], id: Int) -> Void {
-        let quiz = Quiz(title: title,description: description,image: image,category: category,level: level,questions: questions,id: id)
-        quizzes?.append(quiz)
-    }   
 }
 
 extension QuizViewController: UITableViewDelegate {
@@ -129,6 +110,13 @@ extension QuizViewController: UITableViewDelegate {
         let view = quizTableView.dequeueReusableHeaderFooterView(withIdentifier:
             "sectionHeader") as! QuizSectionHeader
         view.title.text = Array(sections)[section].rawValue
+        
+        if Array(sections)[section] == QuizCategory.SPORTS {
+            view.title.textColor = UIColor.blue
+        }
+        else {
+            view.title.textColor = UIColor.red
+        }
         return view
     }
     
@@ -142,7 +130,8 @@ extension QuizViewController: UITableViewDelegate {
         if let quiz = quiz(section: indexPath.section, row: indexPath.row) {
             let selectedQuizViewController = SelectedQuizViewController()
             selectedQuizViewController.quiz = quiz
-            navigationController?.pushViewController(selectedQuizViewController, animated: true)
+            let navViewController = self.tabBarController?.selectedViewController as? UINavigationController
+            navViewController?.pushViewController(selectedQuizViewController, animated: true)
         }
     }
 }
@@ -151,18 +140,22 @@ extension QuizViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! QuizTableViewCell
         
-        if let quiz = quiz(section: indexPath.section,row: indexPath.row) {
-            cell.setup(withQuiz: quiz)
+        guard let quiz = quiz(section: indexPath.section,row: indexPath.row) else {
+            return cell
         }
+        cell.setup(withQuiz: quiz)
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfQuizzes()
+        guard let quizzes = quizzes else {
+            return 0
+        }
+        return Set(quizzes.map{$0.category}).count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section==0){
+        if section==0 {
             return quizzes?.filter{$0.category == QuizCategory.SPORTS}.count ?? 0
         }
         else {
@@ -170,9 +163,3 @@ extension QuizViewController: UITableViewDataSource {
         }
     }
 }
-
-
-
-
-
-

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="2a4-wy-Hcd" customClass="LeaderboardTableViewCell" customModule="QuizApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2a4-wy-Hcd" id="wJS-K6-Sj5">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="97.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZC-me-Y0C" userLabel="RankLabel">
+                        <rect key="frame" x="40" y="36" width="15" height="25.5"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayerJon123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4h-GS-Lrz" userLabel="PlayersNameLabel">
+                        <rect key="frame" x="63" y="37.5" width="102" height="23"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26246" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-3n-btJ" userLabel="PlayersScoreLabel">
+                        <rect key="frame" x="274" y="32.5" width="69" height="33"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="26"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="Lg4-3n-btJ" firstAttribute="centerY" secondItem="wJS-K6-Sj5" secondAttribute="centerY" id="458-c5-bba"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Lg4-3n-btJ" secondAttribute="trailing" constant="32" id="Qaz-wB-JN7"/>
+                    <constraint firstItem="AZC-me-Y0C" firstAttribute="centerY" secondItem="wJS-K6-Sj5" secondAttribute="centerY" id="VLF-X3-xAb"/>
+                    <constraint firstItem="AZC-me-Y0C" firstAttribute="leading" secondItem="wJS-K6-Sj5" secondAttribute="leadingMargin" constant="20" id="WRg-oC-101"/>
+                    <constraint firstItem="A4h-GS-Lrz" firstAttribute="leading" secondItem="AZC-me-Y0C" secondAttribute="trailing" constant="8" id="cdi-PR-4nZ"/>
+                    <constraint firstItem="A4h-GS-Lrz" firstAttribute="centerY" secondItem="wJS-K6-Sj5" secondAttribute="centerY" id="eU9-W2-ObI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="playerName" destination="A4h-GS-Lrz" id="OIb-h6-fGD"/>
+                <outlet property="playerRankLabel" destination="AZC-me-Y0C" id="FvE-lo-9X8"/>
+                <outlet property="playerScoreLabel" destination="Lg4-3n-btJ" id="flQ-g8-GF4"/>
+            </connections>
+            <point key="canvasLocation" x="408.80000000000001" y="209.59520239880061"/>
+        </tableViewCell>
+    </objects>
+</document>

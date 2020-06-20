@@ -10,15 +10,15 @@ import Foundation
 
 class Quiz: Decodable {
     
-    var id: Int
     var title: String
     var description: String
+    var image: URL?
+    var id: Int
     var category: QuizCategory
     var level: Int
-    var image: URL?
     var questions: [Question]
     
-    init(title: String, description: String, image: URL, category: QuizCategory, level: Int, questions: [Question], id: Int) {
+    init(title: String, description: String, image: URL?, category: QuizCategory, level: Int, questions: [Question], id: Int) {
         self.title = title
         self.description = description
         self.image = image
