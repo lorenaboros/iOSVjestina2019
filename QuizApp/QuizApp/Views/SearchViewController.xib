@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="QuizApp" customModuleProvider="target">
+            <connections>
+                <outlet property="searchInputField" destination="ehZ-ZK-0se" id="ZF9-am-uaL"/>
+                <outlet property="searchTableView" destination="gdZ-Mt-a3d" id="L9m-kK-ACc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehZ-ZK-0se">
+                    <rect key="frame" x="21" y="50" width="264" height="44"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59828767123287663" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <accessibility key="accessibilityConfiguration" hint="kkk"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sOF-9o-Nsn"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-wM-Wjo">
+                    <rect key="frame" x="305" y="53" width="50" height="33"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="16"/>
+                    <state key="normal" title="Search">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="2sd-0x-eh9"/>
+                    </connections>
+                </button>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gdZ-Mt-a3d">
+                    <rect key="frame" x="0.0" y="129" width="375" height="538"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.33725490200000002" green="0.1843137255" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ehZ-ZK-0se" secondAttribute="trailing" constant="90" id="I2Y-0R-en0"/>
+                <constraint firstItem="ehZ-ZK-0se" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="KHd-dw-1Uc"/>
+                <constraint firstItem="Yql-wM-Wjo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="33" id="LsL-rt-giO"/>
+                <constraint firstItem="ehZ-ZK-0se" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="bgY-6o-LA1"/>
+                <constraint firstItem="gdZ-Mt-a3d" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="bzy-bD-tzK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Yql-wM-Wjo" secondAttribute="trailing" constant="20" id="n1X-Q9-n8w"/>
+                <constraint firstItem="gdZ-Mt-a3d" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="oBe-Fm-Mxd"/>
+                <constraint firstItem="gdZ-Mt-a3d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oXd-Nl-Nab"/>
+                <constraint firstItem="gdZ-Mt-a3d" firstAttribute="top" secondItem="ehZ-ZK-0se" secondAttribute="bottom" constant="35" id="pYp-sH-eBy"/>
+                <constraint firstItem="Yql-wM-Wjo" firstAttribute="leading" secondItem="ehZ-ZK-0se" secondAttribute="trailing" constant="20" id="zKF-DD-3w2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="71.200000000000003" y="48.125937031484263"/>
+        </view>
+    </objects>
+</document>

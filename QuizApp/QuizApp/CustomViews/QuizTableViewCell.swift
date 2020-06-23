@@ -17,6 +17,7 @@ class QuizTableViewCell: UITableViewCell {
     @IBOutlet weak var oneRating: UIImageView!
     @IBOutlet weak var threeRating: UIImageView!
     @IBOutlet weak var twoRating: UIImageView!
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         quizTitle.text = ""
@@ -28,26 +29,27 @@ class QuizTableViewCell: UITableViewCell {
         quizTitle.text = quiz.title
         quizDescription.text = quiz.description
         
-        if let url = quiz.image {
-            let data = try? Data(contentsOf: url)
-            self.quizImage.image = UIImage(data: data!)
+        guard let url = quiz.image else {
+            quizImage.isHidden = true
+            return
         }
+        let data = try? Data(contentsOf: url)
+        self.quizImage.image = UIImage(data: data!)
         
         switch quiz.level {
-            case 1:
-                 self.oneRating.isHidden = false
-            case 2:
-                 self.oneRating.isHidden = false
-                 self.twoRating.isHidden = false
-            case 3:
-                 self.oneRating.isHidden = false
-                 self.twoRating.isHidden = false
-                 self.threeRating.isHidden = false
-            default:
-                 self.oneRating.isHidden = true
-                 self.twoRating.isHidden = true
-                 self.threeRating.isHidden = true
+        case 1:
+            self.oneRating.isHidden = false
+        case 2:
+            self.oneRating.isHidden = false
+            self.twoRating.isHidden = false
+        case 3:
+            self.oneRating.isHidden = false
+            self.twoRating.isHidden = false
+            self.threeRating.isHidden = false
+        default:
+            self.oneRating.isHidden = true
+            self.twoRating.isHidden = true
+            self.threeRating.isHidden = true
         }
-       
     }
 }

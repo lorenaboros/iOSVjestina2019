@@ -33,6 +33,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7v-Pa-J9c">
+                    <rect key="frame" x="253" y="120" width="102" height="35"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="18"/>
+                    <state key="normal" title="Leaderboard">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="leaderboardButtonClick:" destination="-1" eventType="touchUpInside" id="orV-gY-h0o"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuizTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-K4-UMl">
                     <rect key="frame" x="24" y="160" width="327" height="40.5"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="32"/>
@@ -75,6 +85,7 @@
                 <constraint firstItem="brS-5E-IAa" firstAttribute="top" secondItem="yLt-TO-RE5" secondAttribute="bottom" constant="20" id="0Qs-ir-1hF"/>
                 <constraint firstItem="brS-5E-IAa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3bU-zg-BoY"/>
                 <constraint firstItem="eHN-Kh-ha7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="FGT-05-gEb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m7v-Pa-J9c" secondAttribute="trailing" constant="20" id="L5u-CU-Nk0"/>
                 <constraint firstItem="yLt-TO-RE5" firstAttribute="top" secondItem="qQP-K4-UMl" secondAttribute="bottom" constant="18" id="Pje-Ps-e3Z"/>
                 <constraint firstItem="qQP-K4-UMl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="140" id="SfJ-YB-KWL"/>
                 <constraint firstItem="yLt-TO-RE5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tqk-9g-QpF"/>
@@ -90,6 +101,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qQP-K4-UMl" secondAttribute="trailing" constant="24" id="pip-oz-7nR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hmB-VT-7S9" secondAttribute="trailing" constant="41" id="rbO-pO-X64"/>
                 <constraint firstItem="hmB-VT-7S9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="sgI-eR-YMI"/>
+                <constraint firstItem="m7v-Pa-J9c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="uNs-tU-M8y"/>
                 <constraint firstItem="brS-5E-IAa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="v2U-38-6lZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
